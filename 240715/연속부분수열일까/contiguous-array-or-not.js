@@ -23,23 +23,7 @@ if(aN > bN){
         }
     }
     if(count !== bN) console.log('No')
-}else if(aN < bn){
-    let idx = 0;
-    for(let i = 0 ; i < bN ; i++){
-        if(numberArr_A[i] === numberArr_B[idx]){
-            count++;
-            idx++;
-            if(count === aN){
-              console.log('Yes')
-              break;  
-            } 
-        }else{
-            idx = 0
-            count = 0;
-        }
-    }
-    if(count !== bN) console.log('No')
-}else{
+}else if(aN === bn){
     for(let i = 0; i < aN ; i++){
         if(numberArr_A[i] === numberArr_B[i]){
             count++;
