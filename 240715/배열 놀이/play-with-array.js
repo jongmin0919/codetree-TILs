@@ -31,14 +31,11 @@ for(let i = 2 ; i < testCase + 2 ; i++){
         continue;
     }
     if(query[0] == 3){
-        // 테스트 케이스가 3이면 시작값과 종료값을 정하고, FOR문을 돌면서 letter에 문자열로 저장을 한 후 양쪽 공백을 제거하고 출력
+        // 테스트 케이스가 3이면 시작값과 종료값을 정하고, 공백으로 배열(arr)의 요소들을 join으로 문자열로 합친 뒤 arr에서 slice로 잘라서 범위만큼 잘라 반환
         let startPoint = query[1] - 1;
         let endPoint = query[2];
-        let letter = "";
-        for(let i = startPoint ; i < endPoint ; i++){
-            letter += `${arr[i]} `
-        }
-        console.log(letter.trim());
+        let letter = arr.slice(startPoint, endPoint).join(' ');
+        console.log(letter);
         continue;
     }
 }
