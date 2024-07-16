@@ -4,12 +4,12 @@ let letter = givenStr[0]
 let length = parseInt(givenStr[1]);
 
 let result = "";
-if(length < letter.length){
+if(length <= letter.length){
     for(let i = (letter.length) - 1  ; i > (letter.length - length) -1 ; i--){
         result += letter[i];
     }
 }else{
-    for(let i = 0 ; i < letter.length ; i++){
+    for(let i = letter.length - 1 ; i >= 0 ; i--){
         result += letter[i];
     }
 }
