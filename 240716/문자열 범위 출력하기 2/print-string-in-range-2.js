@@ -4,8 +4,14 @@ let letter = givenStr[0]
 let length = parseInt(givenStr[1]);
 
 let result = "";
-for(let i = (letter.length) - 1  ; i > (letter.length - length) -1 ; i--){
-    result += letter[i];
+if(length < letter.length){
+    for(let i = (letter.length) - 1  ; i > (letter.length - length) -1 ; i--){
+        result += letter[i];
+    }
+}else{
+    for(let i = 0 ; i < letter.length ; i++){
+        result += letter[i];
+    }
 }
 
 console.log(result);
