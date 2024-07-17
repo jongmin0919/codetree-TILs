@@ -15,7 +15,6 @@ for (let i = 0; i <= letterA.length - letterB.length; i++) {
     }
     if (flag) {
         count++;
-        i += letterB.length - 1; // 현재 발견된 문자열의 첫번째 위치에서 문자열의 길이만큼 건너뛴 이후의 인덱스부터 시작해야함
     }
 }
 
