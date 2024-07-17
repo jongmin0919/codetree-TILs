@@ -10,4 +10,4 @@ arr.forEach(alpha => {
     }
 });
 
-console.log(checker ? checker : "No");
+console.log(checker !== false ? checker : "No");
