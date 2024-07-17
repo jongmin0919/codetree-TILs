@@ -20,7 +20,7 @@ public class Main {
                 count++;
             } else {
                 encodingStack.add(count);
-                state = input[.charAt(i)];
+                state = input.charAt(i);
                 alphaStack.add(state);
                 count = 1;
             }
