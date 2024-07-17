@@ -20,4 +20,4 @@ for(let i = 0 ; i < letterA.length ; i++){
     }
 }
 
-console.log(result);
+console.log(result ? result : -1);
