@@ -9,11 +9,7 @@ public class Main {
         if(operator == '+') return a + b;
         else if(operator == '-') return a - b;
         else if(operator == '*') return a * b;
-        else return 0; 
-    }
-
-    public static double calculator(double a, double b, char operator){
-        if(operator == '/') return a / b;
+        else if(operator == '/') return a / b;
         else return 0; 
     }
 
@@ -24,7 +20,12 @@ public class Main {
         int a = Integer.parseInt(arr[0]);
         int b = Integer.parseInt(arr[2]);
         char o = arr[1].charAt(0);
+        
+        System.out.printf(a + " " + o + " " + b + " = " + calculator(a,b,o));    
+        
+            
+        
 
-        System.out.printf(a + " " + o + " " + b + " = " + calculator(a,b,o));
+        
     }
 }
