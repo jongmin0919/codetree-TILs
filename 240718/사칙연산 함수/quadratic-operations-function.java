@@ -10,7 +10,7 @@ public class Main {
         else if(operator == '-') return a - b;
         else if(operator == '*') return a * b;
         else if(operator == '/') return a / b;
-        else return 0; 
+        else return false; 
     }
 
     public static void main(String[] args) throws IOException{
@@ -21,7 +21,12 @@ public class Main {
         int b = Integer.parseInt(arr[2]);
         char o = arr[1].charAt(0);
         
-        System.out.printf(a + " " + o + " " + b + " = " + calculator(a,b,o));    
+        if(calculator(a,b,o) == false){
+            System.out.printf(calculator(a,b,o));        
+        }else{
+            System.out.printf(a + " " + o + " " + b + " = " + calculator(a,b,o));    
+        }
+        
         
             
         
