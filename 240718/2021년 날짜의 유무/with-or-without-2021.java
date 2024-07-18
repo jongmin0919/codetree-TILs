@@ -17,20 +17,12 @@ public class Main {
             return "No";
         }
         
+        // 날짜 배열의 각 날에 대응되는 그 달의 날들(2중 배열)을 사용해도 되는데 그렇게 되면 귀찮아져서 그냥 switch문을 사용함
         switch (Main.month) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
                 if (day < 1 || day > 31) flag = false;
                 break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
+            case 4: case 6: case 9: case 11:
                 if (day < 1 || day > 30) flag = false;
                 break;
             case 2:
