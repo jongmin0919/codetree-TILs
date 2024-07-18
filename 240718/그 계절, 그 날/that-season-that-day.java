@@ -8,7 +8,7 @@ public class Main {
     static int year = 0;
     static boolean flag = true;
 
-    // 평년일 때 체크하는 메서드
+    
     public static String checkNormalYear(int month, int day) {
         flag = true;
         Main.month = 0;
@@ -34,12 +34,7 @@ public class Main {
         }
 
         // 계절 서칭
-        if(flag){
-            if(month >= 3 && month <= 5) return "Spring";
-            else if(month >= 6 && month <= 8) return "Summer";
-            else if(month >= 9 && month <= 11) return "Fall";
-            else if(month == 12 || month >= 1 && month <= 2) return "Winter";
-        }
+        if(flag) return SeasonSelector(month);
         return "-1"; 
     }
 
@@ -66,12 +61,7 @@ public class Main {
                 break;
         }
 
-        if(flag){
-            if(month >= 3 && month <= 5) return "Spring";
-            else if(month >= 6 && month <= 8) return "Summer";
-            else if(month >= 9 && month <= 11) return "Fall";
-            else if(month == 12 || month >= 1 && month <= 2) return "Winter";
-        }
+        if(flag) return SeasonSelector(month);
         return "-1";
     }
 
@@ -90,6 +80,15 @@ public class Main {
             return checkNormalYear(month, day);
         }
     }
+
+    // 평년일 때 체크하는 메서드
+    public static String SeasonSelector(int month){
+        if(month >= 3 && month <= 5) return "Spring";
+        else if(month >= 6 && month <= 8) return "Summer";
+        else if(month >= 9 && month <= 11) return "Fall";
+        else if(month == 12 || month >= 1 && month <= 2) return "Winter";
+        return "-1";
+    };
     
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
