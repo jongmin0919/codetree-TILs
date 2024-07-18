@@ -62,7 +62,9 @@ function checkYearIs(year, month, day) {
         return checkNormalYear(month, day);
     } else if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
         return checkLeapYear(month, day);
-    } 
+    } else {
+        return checkNormalYear(month, day);
+    }
 }
 
 // 주어진 달이 속한 계절을 반환하는 함수
