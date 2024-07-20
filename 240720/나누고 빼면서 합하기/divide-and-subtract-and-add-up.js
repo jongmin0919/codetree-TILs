@@ -1,9 +1,9 @@
 const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().trim().split("\n");
 
-let num = input[0][2];
+let num = input[0].split(" ");
+num = parseInt(num[1]);
 let numberStream = input[1].split(" ");
-
 
 function repeatAdd(){
     let result = 0;
