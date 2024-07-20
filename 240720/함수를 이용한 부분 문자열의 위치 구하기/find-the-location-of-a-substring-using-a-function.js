@@ -5,4 +5,8 @@ let wholeStr = input[0];
 let partialStr = input[1];
 
 // 나 여태까지 뭔 뻘짓을 한거지...?
-console.log(wholeStr.indexOf(partialStr));
+
+function findIndex(){
+    return wholeStr.indexOf(partialStr);
+}
+console.log(findIndex());
