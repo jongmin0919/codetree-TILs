@@ -6,4 +6,4 @@ const num = parseInt(input[0].split(" ")[1]);
 
 let numbers = input[1].split(" ").map(Number);
 
-console.log(numbers.sort()[num-1]);
+console.log(numbers.sort((a,b) => a-b)[num-1]);
