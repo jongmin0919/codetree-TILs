@@ -19,7 +19,7 @@ for(let i = n-1 ; i >= 0 ; i--){
 }
 
 for(let arr of arr2d){
-    str = "";
+    let str = "";
     for(item of arr){
         str += item + " ";
     }
