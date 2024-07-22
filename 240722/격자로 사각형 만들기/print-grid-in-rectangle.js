@@ -13,7 +13,7 @@ function printArr(arr){
     }
 }
 
-let num = 1;
+
 for(let i = 0 ; i < 5 ; i++){
     for(let j = 0 ; j < 5 ; j++){
         if(i == 0 || j == 0) arr2d[i][j] = 1
