@@ -1,5 +1,5 @@
 const fs = require('fs');
-const input = parseInt(fs.readFileSync('/dev/stdin').toString().trim(), 10);
+const input = parseInt(fs.readFileSync('/dev/stdin').toString().trim());
 
 let arr2d = Array.from({ length: input }, () => Array(input).fill(0));
 
