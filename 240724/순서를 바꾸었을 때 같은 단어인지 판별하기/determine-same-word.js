@@ -1,25 +1,11 @@
-const fs = require("fs");
-const input = fs.readFileSync(0).toString().trim().split("\n");
-let first = input[0]
-let second = input[1]
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+const [first, second] = input;
 
-function sameOrNot(first, second) {
-
-  if(first == second){
-     console.log("Yes")
-     return;
-  } 
-
-  let length = first.length;
-
-  for(let i = 1 ; i <= length ; i++){
-    first = first[length-1] + first.substring(0,length-1);
-    if(first == second) {
-        console.log("Yes")
-        return;
-    }
-  }
-  console.log("No")
+// 두 문자열을 오름차순으로 정렬하고 같은지 다른지를 비교
+function sameOrNot(str1, str2) {
+    return str1.split('').sort().join('') === str2.split('').sort().join('');
 }
 
-sameOrNot(first, second);
+// 결과 출력
+console.log(sameOrNot(first, second) ? 'Yes' : 'No');
