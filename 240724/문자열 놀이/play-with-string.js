@@ -1,21 +1,19 @@
-const input = ['aba 2', '1 1 2', '2 a c'];
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().trim().split("\n");
 
 let firstLine = input.shift(); 
 let [str, question] = firstLine.split(" ");
 question = parseInt(question);
-str = str.split("");
+let strArr = str.split("");
 
-str = input.forEach(arr => {
+input.forEach(arr => {
     
     arr = arr.split(" ")
     if(parseInt(arr[0]) === 1){
-        [str[arr[1]-1], str[arr[2]-1]] = [str[arr[2]-1], str[arr[1]-1]]
-        console.log(str.join(""));
+        [strArr[arr[1]-1], strArr[arr[2]-1]] = [strArr[arr[2]-1], strArr[arr[1]-1]]
+        console.log(strArr.join(""));
     }else if(parseInt(arr[0]) === 2){
-        str = str.map(letter => {
-            if(letter === arr[1]) return arr[2];
-            else return letter;
-        }).join("");
-        console.log(str);
+        strArr = strArr.map(letter => letter === arr[1]? arr[2] : letter);
+        console.log(strArr.join(""));
     }
 })
