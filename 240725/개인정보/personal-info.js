@@ -6,7 +6,7 @@ class Student {
     constructor(name, height, weight) {
         this.name = name;
         this.height = parseInt(height);
-        this.weight = parseFloat(weight);
+        this.weight = parseFloat(weight).toFixed(1);
     }
 
     printInfo(){
