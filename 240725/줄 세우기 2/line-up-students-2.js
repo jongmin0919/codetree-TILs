@@ -1,6 +1,7 @@
 const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().trim().split("\n");
 
+let length = input.shift();
 let arr = input;
 
 class Student {
