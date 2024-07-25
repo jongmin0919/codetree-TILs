@@ -1,21 +1,31 @@
 const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().trim().split("\n");
 
-const length = input.shift();
-let arr = [...input]
+const length = parseInt(input.shift());
+let arr = [...input];
 
-class Coordinate{
+class Coordinate {
+    static num = 1;
 
-    static num = 1
-
-    constructor(x, y){
-        this.x = x
-        this.y = y
-        this.distance = Math.pow(this.x,2) + Math.pow(this.y,2);
+    constructor(x, y) {
+        this.x = Number(x);
+        this.y = Number(y);
+        this.distance = Math.abs(this.x) + Math.abs(this.y);
         this.num = Coordinate.num++;
     }
 }
 
-arr.map(coor => new Coordinate(...coor.split(" "))).sort((a, b) => {
-    return a.distance - b.distance
-}).forEach(item => console.log(item.num));
+const coordinates = arr.map(coor => {
+    const [x, y] = coor.split(" ").map(Number); // Ensure coordinates are numbers
+    return new Coordinate(x, y);
+});
+
+coordinates.sort((a, b) => {
+    if (a.distance !== b.distance) {
+        return a.distance - b.distance;
+    } else {
+        return a.num - b.num; 
+    }
+});
+
+coordinates.forEach(item => console.log(item.num));
