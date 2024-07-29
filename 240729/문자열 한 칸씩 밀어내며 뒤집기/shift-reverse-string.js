@@ -21,7 +21,8 @@ for(let i = 0 ; i < ask ;i++){
         for(let i = length - 1 ; i >= 0 ; i--){
             reversed += word[i]
         }
-        console.log(reversed)
+        word = reversed;
+        console.log(word)
         break;
     }
 }
