@@ -44,8 +44,9 @@ public class Main {
             }
         }
         
-        // 배열에서 최대값 찾기
-        int max = Arrays.stream(arr).max().orElse(0);
+        // 최대값 찾기 (내림차순 후 배열의 마지막 끝 요소 출력)
+        Arrays.sort(arr);
+        int max = arr[arr.length - 1];
         
         System.out.println(max);
         
