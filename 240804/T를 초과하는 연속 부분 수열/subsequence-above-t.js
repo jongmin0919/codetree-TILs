@@ -7,9 +7,9 @@ const numbers = input[1].split(" ").map(Number);
 let cnt = 1;
 let max = 0;
 
-if(numbers.length > 2){
+if(numbers.length > 1){
     for(let i = 1 ; i < count ; i++){
-        if(numbers[i] > numbers[i-1] && numbers[i-1] > aim){
+        if(numbers[i] > aim && numbers[i-1] > aim){
             cnt++;
             if (max < cnt) max = cnt;
         }else  cnt = 1;
