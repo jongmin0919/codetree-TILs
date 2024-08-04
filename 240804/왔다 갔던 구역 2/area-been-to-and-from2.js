@@ -24,7 +24,7 @@ const rangedArray = Array.from({ length: max - min + 1 }, (v, i) => min + i);
 const accumulator = Array.from({ length: max - min + 1 }, (v, i) => 0);
 
 // position의 기준을 rangedArray의 0의 인덱스로 기준을 잡음
-position = rangedArray.indexOf(0);
+let position = -min;
 
 for(let order of orderArr){
     // 이동키가 R일 경우 for문을 이동 숫자만큼 증가하면서 대응되는 자리의 accumulator 자리를 증가한 후 positin 증가 (오른쪽 이동)
