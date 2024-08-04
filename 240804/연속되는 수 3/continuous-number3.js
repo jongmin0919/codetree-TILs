@@ -11,4 +11,4 @@ for(let i = 0 ; i < input.length-2 ; i++){
     }else cnt = 1;
 }
 
-console.log(max)
+console.log(max === 0 ? 1 : max)
