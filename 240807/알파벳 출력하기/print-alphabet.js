@@ -8,6 +8,7 @@ if(input  === 1){
     for(let i = 1 ; i <= input ; i++){
         let str = "";
         for(let j = 0 ; j < i ; j++){
+            if(charCode === 91) charCode = 65;
             str += String.fromCharCode(charCode)
             charCode++;
         }
