@@ -25,7 +25,11 @@ let tile = Array(size).fill("");
 let position = Math.abs(min);
 
 for (let order of orderArr) {
+    
+    if(parseInt(order[0]) < 1 && parseInt(order[0]) > 100) continue;
+    
     const steps = parseInt(order[0]);
+
     if (order[1] === 'R') {
         for (let i = 0; i < steps; i++) {
             tile[position] = 0;
@@ -55,6 +59,6 @@ tile.filter(item => item !== "").forEach(item => {
     else black++;
 });
 
-if(white === 790) white++;
+
 
 console.log(`${white} ${black}`)
