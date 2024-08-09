@@ -3,8 +3,8 @@ const input = fs.readFileSync('/dev/stdin').toString().trim().split("\n");
 
 const [lines, orderArr] = [input.shift(), input.map(arr => arr.split(" "))]
 
-let min = Infinity
-let max = -Infinity
+let min = 0
+let max = 0
 let num = 0;
 
 orderArr.forEach(order => {
@@ -17,10 +17,10 @@ orderArr.forEach(order => {
 })
 
 // from의 콜백 함수의 두번째 매개변수 (인덱스 값)와 min 값을 이용해 배열의 총 길이(0을 포함한 14개의 요소)를 순차적으로 생성
-const accumulator = Array.from({ length: max + Math.abs(min) + 1 }, (v, i) => 0);
-const blackArr = Array.from({ length: max + Math.abs(min) + 1 }, (v, i) => 0);
-const whiteArr = Array.from({ length: max + Math.abs(min) + 1 }, (v, i) => 0);
-const colorArr = Array.from({ length: max + Math.abs(min) + 1 }, (v, i) => '');
+const accumulator = Array.from({ length: max + -(min) + 1 }, (v, i) => 0);
+const blackArr = Array.from({ length: max + -(min) + 1 }, (v, i) => 0);
+const whiteArr = Array.from({ length: max + -(min) + 1 }, (v, i) => 0);
+const colorArr = Array.from({ length: max + -(min) + 1 }, (v, i) => '');
 
 
 let position = -min
@@ -29,12 +29,13 @@ for(let order of orderArr){
 
     if(order[1] === 'R'){
         for(let i = 0 ; i < parseInt(order[0]) ; i++){
+            
             accumulator[position]++;
             blackArr[position]++
             if(accumulator[position] < 4 && blackArr[position] - whiteArr[position] >= 0){
                     colorArr[position] = 'B'
             }
-            if(accumulator[position] >= 4) colorArr[position] = 'G'
+            if(whiteArr[position] >= 2 && blackArr[position] >= 2) colorArr[position] = 'G'
             position++;
         }
         position--;
@@ -47,7 +48,7 @@ for(let order of orderArr){
             if(whiteArr[position] - blackArr[position] >= 0){
                     colorArr[position] = 'W'
             }
-            if(accumulator[position] >= 4) colorArr[position] = 'G'
+            if(whiteArr[position] >= 2 && blackArr[position] >= 2) colorArr[position] = 'G'
             position--;
         }
         position++;
