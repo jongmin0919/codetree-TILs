@@ -25,10 +25,10 @@ let tile = Array(size).fill("");
 let position = Math.abs(min);
 
 for (let order of orderArr) {
-    
-    if(parseInt(order[0]) < 1 && parseInt(order[0]) > 100) continue;
-    
+        
     const steps = parseInt(order[0]);
+
+    if (steps < 1 || steps > 100) continue;
 
     if (order[1] === 'R') {
         for (let i = 0; i < steps; i++) {
