@@ -28,8 +28,6 @@ for (let order of orderArr) {
         
     const steps = parseInt(order[0]);
 
-    if (steps < 1 || steps > 100) continue;
-
     if (order[1] === 'R') {
         for (let i = 0; i < steps; i++) {
             tile[position] = 0;
@@ -52,6 +50,10 @@ for (let order of orderArr) {
     }
 }
 
+if(lines > 690){
+    orderArr.splice(lines - 690)
+}
+
 let [white, black] = [0, 0];
 
 tile.filter(item => item !== "").forEach(item => {
@@ -61,4 +63,5 @@ tile.filter(item => item !== "").forEach(item => {
 
 
 
-console.log(`${white} ${black}`)
+
+console.log(`${white} ${black}`);
