@@ -35,7 +35,7 @@ for(let order of orderArr){
             if(accumulator[position] < 4 && blackArr[position] - whiteArr[position] >= 0){
                     colorArr[position] = 'B'
             }
-            if(whiteArr[position] >= 2 && blackArr[position] >= 2) colorArr[position] = 'G'
+            if(whiteArr[position] == 2 && blackArr[position] == 2) colorArr[position] = 'G'
             position++;
         }
         position--;
@@ -48,7 +48,7 @@ for(let order of orderArr){
             if(whiteArr[position] - blackArr[position] >= 0){
                     colorArr[position] = 'W'
             }
-            if(whiteArr[position] >= 2 && blackArr[position] >= 2) colorArr[position] = 'G'
+            if(whiteArr[position] == 2 && blackArr[position] == 2) colorArr[position] = 'G'
             position--;
         }
         position++;
