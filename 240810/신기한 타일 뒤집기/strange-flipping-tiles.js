@@ -10,7 +10,7 @@ let num = 0;
 // 최소값 최대값 찾고 배열의 사이즈를 맞추기
 orderArr.forEach(order => {
     let temp = 0;
-    if (order[1] === 'R') temp = parseInt(order[0]);
+    if (order[1] === 'R') temp = parseInt(order[0]) - 1;
     else temp = -(parseInt(order[0]));
     
     num += temp;
@@ -25,7 +25,9 @@ let tile = Array(size).fill("");
 let position = Math.abs(min);
 
 for (let order of orderArr) {
-        
+    
+    if(parseInt(order[0]) < 1 && parseInt(order[0]) > 100) continue;
+    
     const steps = parseInt(order[0]);
 
     if (order[1] === 'R') {
@@ -50,10 +52,6 @@ for (let order of orderArr) {
     }
 }
 
-if(lines > 690){
-    orderArr.splice(lines - 690)
-}
-
 let [white, black] = [0, 0];
 
 tile.filter(item => item !== "").forEach(item => {
@@ -63,5 +61,4 @@ tile.filter(item => item !== "").forEach(item => {
 
 
 
-
-console.log(`${white} ${black}`);
+console.log(`${white} ${black}`)
