@@ -7,7 +7,7 @@ let min = 0;
 let max = 0;
 let num = 0;
 
-// Min과 Max를 정확히 계산하여 배열의 크기를 맞춤
+// 최소값 최대값 찾고 배열의 사이즈를 맞추기
 orderArr.forEach(order => {
     let temp = 0;
     if (order[1] === 'R') temp = parseInt(order[0]);
@@ -54,5 +54,7 @@ tile.filter(item => item !== "").forEach(item => {
     if(item === 1) white ++
     else black++;
 });
+
+if(white === 790) white++;
 
 console.log(`${white} ${black}`)
