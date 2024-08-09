@@ -17,10 +17,10 @@ orderArr.forEach(order => {
 })
 
 // from의 콜백 함수의 두번째 매개변수 (인덱스 값)와 min 값을 이용해 배열의 총 길이(0을 포함한 14개의 요소)를 순차적으로 생성
-const accumulator = Array.from({ length: max + Math.abs(min) }, (v, i) => 0);
-const blackArr = Array.from({ length: max + Math.abs(min) }, (v, i) => 0);
-const whiteArr = Array.from({ length: max + Math.abs(min) }, (v, i) => 0);
-const colorArr = Array.from({ length: max + Math.abs(min) }, (v, i) => '');
+const accumulator = Array.from({ length: max + Math.abs(min) + 1 }, (v, i) => 0);
+const blackArr = Array.from({ length: max + Math.abs(min) + 1 }, (v, i) => 0);
+const whiteArr = Array.from({ length: max + Math.abs(min) + 1 }, (v, i) => 0);
+const colorArr = Array.from({ length: max + Math.abs(min) + 1 }, (v, i) => '');
 
 
 let position = -min
