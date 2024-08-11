@@ -11,7 +11,7 @@ let num = 0;
 orderArr.forEach(order => {
     let temp = 0;
     if (order[1] === 'R') temp = parseInt(order[0]) - 1;
-    else temp = -(parseInt(order[0])) - 1;
+    else temp = -(parseInt(order[0] - 1));
     
     num += temp;
     if (num < min) min = num;
@@ -19,7 +19,6 @@ orderArr.forEach(order => {
 });
 
 // 범위 설정: 음수 값을 보정하는 offset 사용
-const offset = -min;
 const size = max - min + 1;
 
 const accumulator = Array(size).fill(0);
@@ -28,7 +27,7 @@ const whiteArr = Array(size).fill(0);
 const colorArr = Array(size).fill('');
 
 // 초기 position을 offset으로 설정하여 항상 양수 인덱스를 사용
-let position = offset;
+let position = Math.abs(min);
 
 for (let order of orderArr) {
     const steps = parseInt(order[0]);
@@ -70,5 +69,6 @@ for (let i = 0; i < colorArr.length; i++) {
     if (colorArr[i] === 'B') result[1]++;
     if (colorArr[i] === 'G') result[2]++;
 }
+
 
 console.log(result.join(' ').trim());
