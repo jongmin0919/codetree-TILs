@@ -40,7 +40,7 @@ for (let order of orderArr) {
             if (whiteArr[position] >= 2 && blackArr[position] >= 2) colorArr[position] = 'G';
             position++;
 
-            if (position < 0) break;
+            if (position < 0 || position > accumulator.length) break;
 
         }
         position--; // R 명령 후 position 조정
@@ -55,7 +55,7 @@ for (let order of orderArr) {
             if (whiteArr[position] >= 2 && blackArr[position] >= 2) colorArr[position] = 'G';
             position--;
 
-            if (position < 0) break;
+            if (position < 0 || position > accumulator.length) break;
         }
         position++; // L 명령 후 position 조정
     }
