@@ -48,9 +48,12 @@ for (let row = 0; row < coordinate; row++) {
     }
 }
 
-// 남아있는 직사각형의 경계로 최소 직사각형의 넓이 계산
-const width = maxX - minX + 1;
-const height = maxY - minY + 1;
-const area = width * height;
-
-console.log(area);
+if (maxX >= minX && maxY >= minY) {
+    const width = maxX - minX + 1;
+    const height = maxY - minY + 1;
+    const area = width * height;
+    console.log(area);
+} else {
+    
+    console.log(0);
+}
