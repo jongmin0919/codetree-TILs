@@ -48,12 +48,13 @@ for (let row = 0; row < coordinate; row++) {
     }
 }
 
+// 덮어야할 직사각형의 유효한 영역이 존재하는 경우 width와 height을 있는 그대로 곱해서 그 면적을 출력
 if (maxX >= minX && maxY >= minY) {
     const width = maxX - minX + 1;
     const height = maxY - minY + 1;
     const area = width * height;
     console.log(area);
 } else {
-    
+    // 없는 경우 출력해야하는 값 자체(덮어야 할 곳 자체)가 없기 때문에 0을 출력
     console.log(0);
 }
