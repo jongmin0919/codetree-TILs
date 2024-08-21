@@ -16,7 +16,6 @@ const directions = {
 
 // 결과를 저장할 배열과 인접한 칸이 1인지를 카운팅 할 cnt 변수 초기화
 const result = [];
-let cnt = 0;
 
 // 각 칸을 색칠하고 '편안한 상태'인지 확인
 for (const [r, c] of lines) {
@@ -27,6 +26,8 @@ for (const [r, c] of lines) {
     const row = r - 1;
     const col = c - 1;
     
+
+    let cnt = 0;
     // 좌우 네 방향을 살펴봐야 하기 때문에 매번 lines의 라인들 마다 네 방향을 살펴보기 위해
     // Object.keys로 키 배열들(["N", "S", "E", "W"])에 대한 forEach로 조회하는 작업들을 진행
     Object.keys(directions).forEach(key => {
@@ -41,13 +42,7 @@ for (const [r, c] of lines) {
     });
     
     // cnt가 3 이상이면 1로 기억하고 아니면 0을 기록
-    if (cnt >= 3) {
-        result.push(1);
-        cnt = 0;
-    } else {
-        result.push(0);
-        cnt = 0;
-    }
+    result.push(cnt === 3 ? 1 : 0);
 }
 
 // 결과 출력
