@@ -16,7 +16,7 @@ const directions = {
 
 // 결과를 저장할 배열과 인접한 칸이 1인지를 카운팅 할 cnt 변수 초기화
 const result = [];
-const cnt = 0;
+let cnt = 0;
 
 // 각 칸을 색칠하고 '편안한 상태'인지 확인
 for (const [r, c] of lines) {
