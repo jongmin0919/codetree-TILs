@@ -1,56 +1,55 @@
 const fs = require('fs');
 const input = fs.readFileSync('/dev/stdin').toString().trim().split("\n");
 const runner = input.shift().split(" ").map(Number);
-const aMoving = input.splice(0,runner[0]);
+const aMoving = input.splice(0, runner[0]);
 const bMoving = input.splice(0);
 
-// 각 A와 B의 배열
-let arrA = [];
-let arrB = [];
-
-// A와 B 배열의 첫번째 부분에는 0을 집어넣음 (둘 다 0에서 출발하므로)
-arrA.push(0);
-arrB.push(0);
-
-// A와 B 각각의 주어지는 라인과 시간, 위치를 초기화
-let aLine, bLine;
-let aSecond = 0, bSecond = 0;
-let aOrder, bOrder;
+// A와 B의 위치 및 시간 정보를 초기화
 let aPosition = 0, bPosition = 0;
-
+let aSecond = 0, bSecond = 0;
+let aOrder = null, bOrder = null;
 let result = 0;
 
-// aMoving과 bMoving이 남아있는 동안 while문 돌기
-while(aMoving.length  > 0 || bMoving.length > 0 || aSecond > 0 || bSecond > 0){
-    if(aMoving.length !== 0 && aSecond === 0){
-        let aLine = aMoving.shift().split(" ");
-        [aSecond, aOrder] = [parseInt(aLine[0]), aLine[1]]
-    }
-    
-    if(bMoving.length !== 0 && bSecond === 0){
-        let bLine = bMoving.shift().split(" ");
-        [bSecond, bOrder] = [parseInt(bLine[0]), bLine[1]]
-    }
-     
-//   count를 선정하는 기준은 aSecond와 bSecond가 0이 아니고 남아있는 상태일 때 최소값을 넣고, 둘 중 하나가 0이면 그 중에 큰 값을 count로 선정
-    if(aSecond !== 0 && bSecond !== 0) count = Math.abs(Math.min(aSecond, bSecond))
-    else count = Math.abs(Math.max(aSecond, bSecond))
-    
-    for(let i = 0 ; i < count ; i++){
-        if (aOrder === "R" && aSecond > 0) aPosition++;
-        if (aOrder === "L" && aSecond > 0) aPosition--;
-        if (bOrder === "R" && bSecond > 0) bPosition++;
-        if (bOrder === "L" && bSecond > 0) bPosition--;
+// 이동 명령을 배열로 변환
+const aCommands = aMoving.map(line => line.split(" "));
+const bCommands = bMoving.map(line => line.split(" "));
 
-    arrA.push(aPosition);
-    arrB.push(bPosition);
+let i = 0, j = 0;
 
-    // arrA와 arrB의 배열 길이의 마지막, 즉 최신의 것이 서로 같고, 최신 직전의 것들이 서로 다를 때 result를 증가
-    if(arrA[arrA.length - 1] === arrB[arrB.length - 1] && arrA[arrA.length - 2] !== arrB[arrB.length - 2]) result++;
-    
-    if(aSecond > 0) aSecond--;
-    if(bSecond > 0) bSecond--;
+while (i < aCommands.length || j < bCommands.length) {
+    // 현재 시간과 방향 결정
+    if (i < aCommands.length) {
+        [aSecond, aOrder] = [parseInt(aCommands[i][0]), aCommands[i][1]];
     }
+    if (j < bCommands.length) {
+        [bSecond, bOrder] = [parseInt(bCommands[j][0]), bCommands[j][1]];
+    }
+
+    // 이동 시간 결정
+    let moveTime = Math.min(aSecond, bSecond);
+    if (aSecond === 0) moveTime = bSecond;
+    if (bSecond === 0) moveTime = aSecond;
+
+    // 주자 A와 B의 위치 갱신
+    if (aOrder) {
+        if (aOrder === "R") aPosition += moveTime;
+        if (aOrder === "L") aPosition -= moveTime;
+        aSecond -= moveTime;
+    }
+    if (bOrder) {
+        if (bOrder === "R") bPosition += moveTime;
+        if (bOrder === "L") bPosition -= moveTime;
+        bSecond -= moveTime;
+    }
+
+    // 교차 점 확인
+    if (aPosition === bPosition) {
+        result++;
+    }
+
+    // 명령 갱신
+    if (aSecond === 0) i++;
+    if (bSecond === 0) j++;
 }
 
-console.log(result)
+console.log(result);
